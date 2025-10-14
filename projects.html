@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+        
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #dbeafe;
+            --accent: #0ea5e9;
+            --text-dark: #0f172a;
+            --text-light: #ffffff;
+            --text-muted: #94a3b8;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --border: #e2e8f0;
+            --border-dark: #334155;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-lg: rgba(0, 0, 0, 0.15);
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+            --gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1a1f35 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+        
+        body.light-mode {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text-dark);
+        }
+        
+        /* Navbar Enhancement */
+        .navbar {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-mode .navbar {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 30px rgba(59, 130, 246, 0.1);
+        }
+        
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        body.light-mode .nav-links a {
+            color: var(--text-dark);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        body.light-mode .mobile-menu-btn {
+            color: var(--text-dark);
+        }
+        
+        .theme-toggle {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: rotate(20deg);
+        }
+        
+        body.light-mode .theme-toggle {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+        }
+        
+        .time-display {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        body.light-mode .time-display {
+            background: rgba(59, 130, 246, 0.1);
+            color: #475569;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
+                border-top: 1px solid rgba(59, 130, 246, 0.1);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .time-display {
+                display: none;
+            }
+            
+            /* Perbaikan untuk mode light */
+            body.light-mode .nav-links {
+                background: rgba(255, 255, 255, 0.98);
+                border-top: 1px solid rgba(59, 130, 246, 0.2);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            }
+            
+            body.light-mode .nav-links a {
+                color: var(--text-dark) !important;
+                font-weight: 500;
+            }
+            
+            body.light-mode .nav-links a:hover {
+                color: var(--primary) !important;
+            }
+            
+            body.light-mode .nav-links a::after {
+                background: var(--primary);
+            }
+            
+            body.light-mode .nav-links a.active {
+                color: var(--primary) !important;
+            }
+            
+            body.light-mode .nav-links a.active::after {
+                width: 100%;
+            }
+        }
+        
+        /* Main Content */
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .projects-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .projects-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            margin-top: 5rem;
+        }
+        
+        body.light-mode .projects-title {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .projects-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        body.light-mode .projects-subtitle {
+            color: #64748b;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .filter-tab {
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            background: rgba(30, 41, 59, 0.4);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .filter-tab:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .filter-tab.active {
+            background: var(--gradient);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        body.light-mode .filter-tab {
+            border-color: rgba(59, 130, 246, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--text-dark);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .project-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        body.light-mode .project-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.08);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .project-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-image::after {
+            opacity: 1;
+        }
+        
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+        }
+        
+        .project-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        body.light-mode .project-title {
+            background: linear-gradient(135deg, #1e40af 0%, #0369a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .project-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        body.light-mode .project-description {
+            color: #4b5563;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.75rem;
+        }
+        
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .tech-tag:hover {
+            background: rgba(59, 130, 246, 0.25);
+            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.3rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .project-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Featured Project */
+        .featured-project {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: row;
+            min-height: 420px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .featured-project:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .featured-project .project-image {
+            width: 45%;
+            height: 100%;
+            flex-shrink: 0;
+            min-height: auto;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .featured-project .project-content {
+            width: 55%;
+            padding: 2.5rem;
+            justify-content: space-between;
+        }
+        
+        .featured-project .project-title {
+            font-size: 1.9rem;
+        }
+        
+        .featured-project .project-description {
+            font-size: 1.05rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .featured-project {
+                grid-column: span 1;
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .featured-project .project-image {
+                width: 100%;
+                height: 220px;
+                min-height: auto;
+            }
+            
+            .featured-project .project-content {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .projects-container {
+                padding: 3rem 1.5rem;
+            }
+            
+            .projects-title {
+                font-size: 2.5rem;
+            }
+            
+            .projects-header {
+                margin-bottom: 3rem;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(20px);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            margin-top: 5rem;
+        }
+        
+        body.light-mode .footer {
+            background: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Abdan Syakuro</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="projects.html" class="active">Proyek</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <div class="time-display" id="timeDisplay">12:10:59</div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Content -->
+    <div class="projects-container">
+        <!-- Header -->
+        <div class="projects-header">
+            <h1 class="projects-title">Koleksi Proyek Terbaik</h1>
+            <p class="projects-subtitle">Jelajahi portofolio lengkap saya dengan berbagai teknologi modern dan solusi inovatif yang telah saya kembangkan</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-filter="all">Semua Proyek</div>
+            <div class="filter-tab" data-filter="web">Web Application</div>
+            <div class="filter-tab" data-filter="mobile">Mobile App</div>
+            <div class="filter-tab" data-filter="api">Backend API</div>
+            <div class="filter-tab" data-filter="ui">UI/UX Design</div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Regular Projects -->
+            <div class="project-card fade-in" data-category="api">
+                <div class="project-image">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Social Media API</h3>
+                    <p class="project-description">RESTful API untuk platform media sosial dengan JWT authentication, rate limiting, dokumentasi API komprehensif, versioning, dan sistem monitoring real-time.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Task Management App</h3>
+                    <p class="project-description">Aplikasi kolaboratif untuk manajemen tugas dengan fitur real-time collaboration, workspace tim, sistem notifikasi lanjutan, dan papan kanban interaktif.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js 3</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">WebSocket</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Analytics Dashboard</h3>
+                    <p class="project-description">Dashboard analitik enterprise dengan visualisasi data interaktif real-time, pembuatan laporan kustom, fungsionalitas ekspor data, dan predictive analytics.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="mobile">
+                <div class="project-image">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Mobile App (iOS & Android)</h3>
+                    <p class="project-description">Aplikasi mobile cross-platform native dengan fitur offline-first dan sinkronisasi cloud yang mulus, memberikan pengalaman optimal tanpa koneksi.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">CMS Platform</h3>
+                    <p class="project-description">Sistem manajemen konten yang powerful dengan editor WYSIWYG, dukungan multi-bahasa, sistem permission lanjutan, dan tools SEO optimization lengkap.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Strapi</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="ui">
+                <div class="project-image">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Design System</h3>
+                    <p class="project-description">Sistem desain yang fleksibel dan highly customizable menggunakan Next.js dan Figma untuk kolaborasi tim. Termasuk komponen UI yang dapat digunakan kembali.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Storybook</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="api">
+                <div class="project-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Chatbot API</h3>
+                    <p class="project-description">API chatbot berbasis AI dengan pemrosesan bahasa alami, integrasi dengan berbagai platform messaging, dan kemampuan pembelajaran kontekstual yang canggih.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="web">
+                <div class="project-image">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Video Streaming Platform</h3>
+                    <p class="project-description">Platform streaming video on-demand dengan adaptive bitrate, multi-format support, user authentication, playlist management, dan advanced analytics viewer engagement.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">FFmpeg</span>
+                        <span class="tech-tag">AWS S3</span>
+                        <span class="tech-tag">HLS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="api">
+                <div class="project-image">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Authentication Service</h3>
+                    <p class="project-description">Layanan autentikasi terpusat dengan OAuth 2.0, two-factor authentication, SSO integration, session management, dan security audit logging yang komprehensif.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">OAuth 2.0</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="mobile">
+                <div class="project-image">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Digital Wallet App</h3>
+                    <p class="project-description">Aplikasi dompet digital dengan integrasi bank, transfer uang real-time, pembayaran tagihan, investasi mikro, dan keamanan end-to-end encryption terjamin.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Encryption</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="projects-container">
+            <p>&copy; 2025 Portfolio Programmer. All rights reserved. | Made with <span style="color: #3b82f6;">❤️</span> by Abdan Syakuro</p>
+        </div>
+    </footer>
+
+    <script>
+        // Time display functionality
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('timeDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-mode');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        setTimeout(() => card.classList.add('visible'), 10);
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('visible');
+                    }
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar enhancement on scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 10px 40px rgba(59, 130, 246, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
