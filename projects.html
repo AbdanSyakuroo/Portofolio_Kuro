@@ -247,11 +247,11 @@
             }
         }
 
-        /* Main Content */
+        /* Main Content - Perubahan utama: menambah padding top */
         .projects-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 5rem 2rem;
+            padding: 7rem 2rem 5rem; /* Menambah padding top dari 5rem menjadi 7rem */
         }
 
         .projects-header {
@@ -269,7 +269,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -1px;
-            margin-top: 5rem;
+            margin-top: 0; /* Menghapus margin top yang sebelumnya 5rem */
         }
 
         body.light-mode .projects-title {
@@ -342,9 +342,10 @@
             color: var(--text-dark);
         }
 
+        /* Perubahan utama: Memperlebar kartu dan gambar */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
             gap: 2.5rem;
             animation: fadeInUp 0.8s ease 0.4s both;
         }
@@ -363,17 +364,6 @@
             position: relative;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-            pointer-events: none;
-        }
-
         body.light-mode .project-card {
             background: rgba(255, 255, 255, 0.7);
             border: 1px solid rgba(59, 130, 246, 0.15);
@@ -386,46 +376,71 @@
             border-color: rgba(59, 130, 246, 0.3);
         }
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
+        /* Memperbesar dan memperlebar area gambar */
         .project-image {
-            height: 230px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            color: var(--primary);
-            position: relative;
+            height: 330px;
+            width: 100%;
             overflow: hidden;
-            z-index: 2;
+            position: relative;
+            background-color: rgba(30, 41, 59, 0.5);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
         }
 
+        body.light-mode .project-image {
+            background-color: rgba(241, 245, 249, 0.5);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
 
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease, filter 0.5s ease;
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.02);
+            filter: brightness(1.05) contrast(1.1);
+        }
+
+        /* Image overlay effect */
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
 
         .project-card:hover .project-image::after {
             opacity: 1;
         }
 
+        /* Enhanced project content */
         .project-content {
             padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            z-index: 2;
+            position: relative;
         }
 
         .project-title {
-            font-size: 1.55rem;
-            font-weight: 700;
+            font-size: 1.65rem;
+            font-weight: 800;
             margin-bottom: 0.75rem;
             line-height: 1.3;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.5px;
         }
 
         body.light-mode .project-title {
@@ -541,6 +556,18 @@
             font-size: 1.05rem;
         }
 
+        /* Media Queries untuk Responsivitas */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+                gap: 2rem;
+            }
+            
+            .project-image {
+                height: 260px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .featured-project {
                 grid-column: span 1;
@@ -550,23 +577,27 @@
 
             .featured-project .project-image {
                 width: 100%;
-                height: 220px;
+                height: 240px;
                 min-height: auto;
             }
 
             .featured-project .project-content {
                 width: 100%;
             }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
+            .projects-container {
+                padding: 6rem 1.5rem 3rem; /* Menyesuaikan padding untuk mobile */
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-
-            .projects-container {
-                padding: 3rem 1.5rem;
             }
 
             .projects-title {
@@ -575,6 +606,50 @@
 
             .projects-header {
                 margin-bottom: 3rem;
+            }
+            
+            .project-image {
+                height: 240px;
+            }
+            
+            .project-content {
+                padding: 1.75rem;
+            }
+            
+            .project-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-container {
+                padding: 5rem 1.5rem 3rem; /* Menyesuaikan padding untuk mobile kecil */
+            }
+            
+            .project-image {
+                height: 220px;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.4rem;
+            }
+            
+            .project-description {
+                font-size: 0.9rem;
+            }
+            
+            .tech-tag {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.85rem;
+            }
+            
+            .project-link {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.1rem;
             }
         }
 
@@ -683,7 +758,7 @@
             <!-- Regular Projects -->
             <div class="project-card fade-in" data-category="api">
                 <div class="project-image">
-                    <img src="foodie.png">
+                    <img src="foodie.png" alt="Social Media API">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Social Media API</h3>
@@ -708,7 +783,7 @@
 
             <div class="project-card fade-in" data-category="web">
                 <div class="project-image">
-                    <img src="NasPad.png">
+                    <img src="NasPad.png" alt="Task Management App">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Task Management App</h3>
@@ -733,7 +808,7 @@
 
             <div class="project-card fade-in" data-category="web">
                 <div class="project-image">
-                    <img src="UI Gofood.png" alt="">
+                    <img src="UI Gofood.png" alt="Analytics Dashboard">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Analytics Dashboard</h3>
@@ -758,7 +833,7 @@
 
             <div class="project-card fade-in" data-category="mobile">
                 <div class="project-image">
-                    <img src="Furni.png" alt="">
+                    <img src="Furni.png" alt="Mobile App">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Mobile App (iOS & Android)</h3>
@@ -783,7 +858,7 @@
 
             <div class="project-card fade-in" data-category="web">
                 <div class="project-image">
-                    <img src="Wisata.png" alt="">
+                    <img src="Wisata.png" alt="CMS Platform">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">CMS Platform</h3>
@@ -808,7 +883,7 @@
 
             <div class="project-card fade-in" data-category="ui">
                 <div class="project-image">
-                    <img src="ExpHotel.png" alt="">
+                    <img src="ExpHotel.png" alt="Design System">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Design System</h3>
@@ -833,7 +908,7 @@
 
             <div class="project-card fade-in" data-category="api">
                 <div class="project-image">
-                    <img src="Library.png" alt="">
+                    <img src="Library.png" alt="AI Chatbot API">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">AI Chatbot API</h3>
@@ -858,7 +933,7 @@
 
             <div class="project-card fade-in" data-category="web">
                 <div class="project-image">
-                    <img src="Apk.png" alt="">
+                    <img src="Apk.png" alt="Video Streaming Platform">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Video Streaming Platform</h3>
@@ -884,7 +959,7 @@
 
             <div class="project-card fade-in" data-category="api">
                 <div class="project-image">
-                    <img src="Finschool.png" alt="">
+                    <img src="Finschool.png" alt="Authentication Service">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Authentication Service</h3>
@@ -910,7 +985,7 @@
 
             <div class="project-card fade-in" data-category="mobile">
                 <div class="project-image">
-                    <img src="Hotel.png" alt="">
+                    <img src="Hotel.png" alt="Digital Wallet App">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Digital Wallet App</h3>
@@ -1054,4 +1129,4 @@
     </script>
 </body>
 
-</html>
+</html>    
