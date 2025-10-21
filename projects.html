@@ -251,7 +251,8 @@
         .projects-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 7rem 2rem 5rem; /* Menambah padding top dari 5rem menjadi 7rem */
+            padding: 7rem 2rem 5rem;
+            /* Menambah padding top dari 5rem menjadi 7rem */
         }
 
         .projects-header {
@@ -269,7 +270,8 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -1px;
-            margin-top: 0; /* Menghapus margin top yang sebelumnya 5rem */
+            margin-top: 0;
+            /* Menghapus margin top yang sebelumnya 5rem */
         }
 
         body.light-mode .projects-title {
@@ -424,7 +426,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.3) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.3) 100%);
             opacity: 0;
             transition: opacity 0.5s ease;
             pointer-events: none;
@@ -575,11 +577,11 @@
                 grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
                 gap: 2rem;
             }
-            
+
             .project-image {
                 height: 280px;
             }
-            
+
             .project-card {
                 min-height: 580px;
             }
@@ -601,11 +603,11 @@
             .featured-project .project-content {
                 width: 100%;
             }
-            
+
             .projects-grid {
                 grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             }
-            
+
             .project-card {
                 min-height: 560px;
             }
@@ -613,7 +615,8 @@
 
         @media (max-width: 768px) {
             .projects-container {
-                padding: 6rem 1.5rem 3rem; /* Menyesuaikan padding untuk mobile */
+                padding: 6rem 1.5rem 3rem;
+                /* Menyesuaikan padding untuk mobile */
             }
 
             .projects-grid {
@@ -628,14 +631,15 @@
             .projects-header {
                 margin-bottom: 3rem;
             }
-            
+
             /* Perbaikan utama untuk gambar di mobile */
             .project-image {
-                height: 200px; /* Mengurangi tinggi gambar untuk mobile */
+                height: 200px;
+                /* Mengurangi tinggi gambar untuk mobile */
                 position: relative;
                 overflow: hidden;
             }
-            
+
             .project-image img {
                 width: 100% !important;
                 height: 100% !important;
@@ -648,62 +652,65 @@
                 transform: none !important;
                 transition: transform 0.7s ease, filter 0.5s ease !important;
             }
-            
+
             .project-card:hover .project-image img {
                 transform: scale(1.05) !important;
             }
-            
+
             .project-content {
                 padding: 1.5rem;
             }
-            
+
             .project-title {
                 font-size: 1.4rem;
             }
-            
+
             .project-card {
-                min-height: auto; /* Menghapus min-height untuk mobile */
+                min-height: auto;
+                /* Menghapus min-height untuk mobile */
                 height: auto;
             }
         }
 
         @media (max-width: 480px) {
             .projects-container {
-                padding: 5rem 1.5rem 3rem; /* Menyesuaikan padding untuk mobile kecil */
+                padding: 5rem 1.5rem 3rem;
+                /* Menyesuaikan padding untuk mobile kecil */
             }
-            
+
             /* Perbaikan khusus untuk mobile kecil */
             .project-image {
-                height: 180px; /* Lebih kecil lagi untuk mobile kecil */
+                height: 180px;
+                /* Lebih kecil lagi untuk mobile kecil */
             }
-            
+
             .project-content {
                 padding: 1.25rem;
             }
-            
+
             .project-title {
                 font-size: 1.3rem;
             }
-            
+
             .project-description {
                 font-size: 0.9rem;
                 margin-bottom: 1rem;
             }
-            
+
             .project-tech {
                 margin-bottom: 1.25rem;
                 gap: 0.4rem;
             }
-            
+
             .tech-tag {
                 font-size: 0.7rem;
                 padding: 0.3rem 0.75rem;
             }
-            
+
             .project-links {
                 gap: 0.5rem;
             }
-            
+
             .project-link {
                 font-size: 0.8rem;
                 padding: 0.5rem 1rem;
@@ -804,109 +811,105 @@
         <!-- Filter Tabs -->
         <div class="filter-tabs">
             <div class="filter-tab active" data-filter="all">Semua Proyek</div>
-            <div class="filter-tab" data-filter="web">Web Application</div>
+            <div class="filter-tab" data-filter="web">Web Design</div>
+            <div class="filter-tab" data-filter="system">Web Application</div>
             <div class="filter-tab" data-filter="mobile">Mobile App</div>
-            <div class="filter-tab" data-filter="api">Backend API</div>
             <div class="filter-tab" data-filter="ui">UI/UX Design</div>
         </div>
 
         <!-- Projects Grid -->
         <div class="projects-grid">
             <!-- Regular Projects -->
-            <div class="project-card fade-in" data-category="api">
+            <div class="project-card fade-in" data-category="web">
                 <div class="project-image">
                     <img src="foodie.png" alt="Social Media API">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Social Media API</h3>
-                    <p class="project-description">RESTful API untuk platform media sosial dengan JWT authentication,
-                        rate limiting, dokumentasi API komprehensif, versioning, dan sistem monitoring real-time.</p>
+                    <h3 class="project-title">Web Design Foodie</h3>
+                    <p class="project-description">Website bertemakan bisnis makanan sehat dan projek pertama yang
+                        dilaksanakan dengan menggunakan HTML serta CSS Native</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Express.js</span>
-                        <span class="tech-tag">JWT</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/AbdanSyakuroo/FoodieWeb" class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
-                        <a href="#" class="project-link">
+                        <a href="https://foodie-webdesign.vercel.app/" class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="web">
+            <div class="project-card fade-in" data-category="ui">
                 <div class="project-image">
                     <img src="NasPad.png" alt="Task Management App">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Task Management App</h3>
-                    <p class="project-description">Aplikasi kolaboratif untuk manajemen tugas dengan fitur real-time
-                        collaboration, workspace tim, sistem notifikasi lanjutan, dan papan kanban interaktif.</p>
+                    <h3 class="project-title">Prototipe Web Cikarang Jaya</h3>
+                    <p class="project-description">Sebuah Prototipe mengenai website untuk RM.Padang dengan Desain
+                        Sederhana menggunakan Figma</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Vue.js 3</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Tailwind</span>
-                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Figma</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://www.figma.com/design/STX6vSPHBibHfz81Mg3npL/Penugasan?node-id=218-213&t=bko86AHbJAMbtjM3-1"
+                            class="project-link">
+                            <i class="fab fa-figma"></i> Figma
                         </a>
-                        <a href="#" class="project-link">
+                        <a href="https://www.figma.com/proto/STX6vSPHBibHfz81Mg3npL/Penugasan?node-id=218-213&t=bko86AHbJAMbtjM3-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=218%3A213"
+                            class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="web">
+            <div class="project-card fade-in" data-category="ui">
                 <div class="project-image">
                     <img src="UI Gofood.png" alt="Analytics Dashboard">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Analytics Dashboard</h3>
-                    <p class="project-description">Dashboard analitik enterprise dengan visualisasi data interaktif
-                        real-time, pembuatan laporan kustom, fungsionalitas ekspor data, dan predictive analytics.</p>
+                    <h3 class="project-title">Prototipe Aplikasi Pemesanan Makanan Online</h3>
+                    <p class="project-description">Sebuah Prototipe mengenai Aplikasi konsep semacam GoFood dengan
+                        Desain dan Alur Navigasi Sederhana menggunakan Figma</p>
                     <div class="project-tech">
-                        <span class="tech-tag">React.js</span>
-                        <span class="tech-tag">Chart.js</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Figma</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://www.figma.com/design/STX6vSPHBibHfz81Mg3npL/Penugasan?node-id=46-30&t=bko86AHbJAMbtjM3-1"
+                            class="project-link">
+                            <i class="fab fa-figma"></i> Figma
                         </a>
-                        <a href="#" class="project-link">
+                        <a href="https://www.figma.com/proto/STX6vSPHBibHfz81Mg3npL/Penugasan?node-id=46-30&t=bko86AHbJAMbtjM3-1"
+                            class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="mobile">
+            <div class="project-card fade-in" data-category="ui">
                 <div class="project-image">
                     <img src="Furni.png" alt="Mobile App">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Mobile App (iOS & Android)</h3>
-                    <p class="project-description">Aplikasi mobile cross-platform native dengan fitur offline-first dan
-                        sinkronisasi cloud yang mulus, memberikan pengalaman optimal tanpa koneksi.</p>
+                    <h3 class="project-title">Recreate UI Web Furni</h3>
+                    <p class="project-description">UI ini berisi tentang alat furniture rumah beserta efek hover di
+                        beberapa button menggunakan Figma. Ini merupakan prototype dimana saya meniru atau menduplikasi
+                        dari UI yang sudah ada.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">React Native</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Redux</span>
-                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Figma</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://www.figma.com/design/STX6vSPHBibHfz81Mg3npL/Penugasan?node-id=1-2&t=bko86AHbJAMbtjM3-1"
+                            class="project-link">
+                            <i class="fab fa-figma"></i> Figma
                         </a>
-                        <a href="#" class="project-link">
+                        <a href="https://www.figma.com/proto/STX6vSPHBibHfz81Mg3npL/Penugasan?node-id=1-2&t=bko86AHbJAMbtjM3-1"
+                            class="project-link">
                             <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
@@ -915,126 +918,58 @@
 
 
 
-            <div class="project-card fade-in" data-category="web">
+            <div class="project-card fade-in" data-category="system">
                 <div class="project-image">
                     <img src="Page-KalkulatorDiskon.png" alt="CMS Platform">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">CMS Platform</h3>
-                    <p class="project-description">Sistem manajemen konten yang powerful dengan editor WYSIWYG, dukungan
-                        multi-bahasa, sistem permission lanjutan, dan tools SEO optimization lengkap.</p>
+                    <h3 class="project-title">Kalkulator Diskon</h3>
+                    <p class="project-description">Proyek ini menampilkan perhitungan harga setelah diskon dengan input
+                        harga awal dan persentase diskon. Hasilnya berupa tabel berisi harga sebelum diskon, besar
+                        diskon, dan harga setelah diskon.Untuk simulasi halaman web.
+                        <br> <br>
+                        Catatan : Karena keterbatasan, saya berikan screenshot mengenai detail projek serta hasil
+                        perhitungannya
+                        di GitHub
+                    </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">Strapi</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Bootstrap</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/AbdanSyakuroo/KalkulatorWeb" class="project-link">
                             <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="web">
+            <div class="project-card fade-in" data-category="system">
                 <div class="project-image">
                     <img src="Page-KalkulatorZakat.png" alt="CMS Platform">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">CMS Platform</h3>
-                    <p class="project-description">Sistem manajemen konten yang powerful dengan editor WYSIWYG, dukungan
-                        multi-bahasa, sistem permission lanjutan, dan tools SEO optimization lengkap.</p>
+                    <h3 class="project-title">Kalkulator Zakat Penghasilan</h3>
+                    <p class="project-description">Proyek ini menampilkan perhitungan zakat penghasilan dengan input
+                        pendapatan bulanan dan bonus/THR. Hasilnya berupa tabel berisi rincian pendapatan dan bonus,
+                        total zakat yang harus dibayar, serta pilihan metode pembayaran zakat. Untuk simulasi halaman
+                        web.
+                        <br> <br>
+                        Catatan : Karena keterbatasan, saya berikan screenshot mengenai detail projek serta hasil
+                        perhitungannya
+                        di GitHub
+                    </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">Strapi</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Bootstrap</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/AbdanSyakuroo/KalkulatorWeb" class="project-link">
                             <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-                        <div class="project-card fade-in" data-category="web">
-                <div class="project-image">
-                    <img src="Wisata.png" alt="CMS Platform">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">CMS Platform</h3>
-                    <p class="project-description">Sistem manajemen konten yang powerful dengan editor WYSIWYG, dukungan
-                        multi-bahasa, sistem permission lanjutan, dan tools SEO optimization lengkap.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">Strapi</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card fade-in" data-category="ui">
-                <div class="project-image">
-                    <img src="ExpHotel.png" alt="Design System">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Design System</h3>
-                    <p class="project-description">Sistem desain yang fleksibel dan highly customizable menggunakan
-                        Next.js dan Figma untuk kolaborasi tim. Termasuk komponen UI yang dapat digunakan kembali.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">Figma</span>
-                        <span class="tech-tag">Storybook</span>
-                        <span class="tech-tag">Tailwind</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card fade-in" data-category="api">
-                <div class="project-image">
-                    <img src="Library.png" alt="AI Chatbot API">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">AI Chatbot API</h3>
-                    <p class="project-description">API chatbot berbasis AI dengan pemrosesan bahasa alami, integrasi
-                        dengan berbagai platform messaging, dan kemampuan pembelajaran kontekstual yang canggih.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">NLP</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
@@ -1042,51 +977,79 @@
 
             <div class="project-card fade-in" data-category="web">
                 <div class="project-image">
-                    <img src="Apk.png" alt="Video Streaming Platform">
+                    <img src="Wisata.png" alt="CMS Platform">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Video Streaming Platform</h3>
-                    <p class="project-description">Platform streaming video on-demand dengan adaptive bitrate,
-                        multi-format support, user authentication, playlist management, dan advanced analytics viewer
-                        engagement.</p>
+                    <h3 class="project-title">Web Design NipponVibes</h3>
+                    <p class="project-description">Proyek ini merupakan situs web portofolio Pariwisata Jepang yang
+                        menampilkan destinasi seperti Kyoto, Tokyo, Osaka, dan Shibuya. Menggunakan fitur blog
+                        interaktif di bagian destinasi untuk melihat informasi lengkap, serta simulasi pemesanan nanti sebagaimana pemesanan perjalanan pada umumnya.
+
+                        <br> <br>
+                        Catatan : Saya sediakan screenshot mengenai detail projek di GitHub serta preview dari website.
+                    </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">FFmpeg</span>
-                        <span class="tech-tag">AWS S3</span>
-                        <span class="tech-tag">HLS</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Swiper JS</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/AbdanSyakuroo/NipponVibes" class="project-link">
                             <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card fade-in" data-category="api">
+            <div class="project-card fade-in" data-category="system">
                 <div class="project-image">
-                    <img src="Finschool.png" alt="Authentication Service">
+                    <img src="ExpHotel.png" alt="Design System">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Authentication Service</h3>
-                    <p class="project-description">Layanan autentikasi terpusat dengan OAuth 2.0, two-factor
-                        authentication, SSO integration, session management, dan security audit logging yang
-                        komprehensif.</p>
+                    <h3 class="project-title">EXPRO Hotel</h3>
+                    <p class="project-description">Proyek Sertikom kedua ini berupa website database hotel yang
+                        memungkinkan admin menambah, menghapus, dan mengubah data. Tampilan awal menampilkan jumlah
+                        kamar dipesan, total pendapatan, jenis paket kamar, paket terpopuler, dan jumlah transaksi bulan
+                        ini. Terdapat beberapa halaman, yaitu: Admin (akses terbatas), Jenis Kamar (daftar paket kamar),
+                        Penyewaan (data tamu yang menginap), dan Booking (form input data penginap oleh admin).
+                        <br> <br>
+                        Catatan : Saya sediakan screenshot mengenai detail projek di GitHub serta preview dari website.
+                    </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Go</span>
-                        <span class="tech-tag">OAuth 2.0</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">SCSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/AbdanSyakuroo/ExproHotelWeb" class="project-link">
                             <i class="fab fa-github"></i> GitHub
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="system">
+                <div class="project-image">
+                    <img src="Library.png" alt="AI Chatbot API">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Library Management</h3>
+                    <p class="project-description">
+                        Library Management System adalah aplikasi web berbasis Laravel dengan fitur CRUD dan sistem role
+                        Admin serta Anggota. Admin dapat mengelola data buku, anggota, dan transaksi, termasuk mengubah
+                        status pengembalian buku, sedangkan anggota hanya dapat melihat dan meminjam buku.
+                        <br> <br>
+                        Catatan : Saya sediakan screenshot mengenai detail projek di GitHub serta preview dari website.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AbdanSyakuroo/Library_management" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
                 </div>
@@ -1094,29 +1057,75 @@
 
             <div class="project-card fade-in" data-category="mobile">
                 <div class="project-image">
-                    <img src="Hotel.png" alt="Digital Wallet App">
+                    <img src="Apk.png" alt="MoodLife">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Digital Wallet App</h3>
-                    <p class="project-description">Aplikasi dompet digital dengan integrasi bank, transfer uang
-                        real-time, pembayaran tagihan, investasi mikro, dan keamanan end-to-end encryption terjamin.</p>
+                    <h3 class="project-title">Lifehub & Mood Tracker dalam Satu Aplikasi</h3>
+                    <p class="project-description">LifeHub & MoodTracker adalah aplikasi dua mode dalam satu platform: LifeHub membantu pengguna mengatur kegiatan dengan fitur to-do list, prioritas, tanggal, checklist, dan progress penyelesaian tugas, sedangkan MoodTracker mencatat aktivitas harian beserta kategori mood seperti senang, sedih, atau marah. Keduanya dirancang untuk membantu pengguna menjaga keseimbangan antara produktivitas dan suasana hati.
+                    
+                    <br><br>    
+                    Catatan : Saya sudah menyediakan script React Native yang bisa diakses di github beserta backendnya menggunakan Laravel.
+                    </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Dart</span>
-                        <span class="tech-tag">REST API</span>
-                        <span class="tech-tag">Encryption</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Laravel</span> 
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="https://github.com/AbdanSyakuroo/MoodTracker" class="project-link">
                             <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live
                         </a>
                     </div>
                 </div>
             </div>
-            
+
+            <div class="project-card fade-in" data-category="system">
+                <div class="project-image">
+                    <img src="Finschool.png" alt="Authentication Service">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Finschool ITXPRO</h3>
+                    <p class="project-description">Sistem Informasi Keuangan Sekolah ini membantu mengelola keuangan sekolah secara terstruktur, mulai dari pencatatan penerimaan, pengeluaran, hingga sumber dana yang digunakan. Setiap transaksi otomatis memengaruhi saldo terkait, sehingga laporan keuangan dapat tersaji akurat dan transparan. Website ini juga menyediakan dashboard ringkas serta fitur laporan realisasi dan keseluruhan untuk memudahkan pemantauan keuangan sekolah. 
+
+                    <br> <br>
+                        Catatan : Saya sediakan screenshot mengenai detail projek di GitHub serta preview dari website.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">SCSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AbdanSyakuroo/Sistem_Informasi_Keuangan_Sekolah_Pesat" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in" data-category="system">
+                <div class="project-image">
+                    <img src="Hotel.png" alt="Digital Wallet App">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Imperium Hotel</h3>
+                    <p class="project-description">Website Simulasi Manajemen Pemesanan Hotel merupakan aplikasi berbasis web yang mensimulasikan proses pemesanan kamar hotel secara nyata. Sistem ini menyediakan form pemesanan lengkap dengan perhitungan otomatis, termasuk simulasi diskon berdasarkan tipe kamar, durasi menginap, serta opsi tambahan seperti sarapan yang menambah total biaya. Selain itu, tersedia halaman daftar pemesan untuk menampilkan seluruh data transaksi secara terstruktur dan mudah dipantau layaknya sistem reservasi hotel profesional.
+                        <br> <br>
+                        Catatan : Saya sediakan screenshot mengenai detail projek di GitHub serta preview dari website.
+                    <div class="project-tech">
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">CSS Native</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/AbdanSyakuroo/Hotel_Booking" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -1124,7 +1133,7 @@
     <footer class="footer">
         <div class="projects-container">
             <p>&copy; 2025 Portfolio Programmer. All rights reserved. | Made with <span
-                    style="color: #3b82f6;">❤️</span> by Abdan Syakuro</p>
+                    style="color: #3b82f6;"></span> by Muhammad Abdan Syakuro</p>
         </div>
     </footer>
 
