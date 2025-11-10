@@ -399,62 +399,167 @@
             margin-bottom: 0;
         }
 
-        .education-item {
-            display: flex;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* Certificate Grid Layout */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
         }
 
-        body.light-mode .education-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .certificate-card {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .education-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
+        body.light-mode .certificate-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        .education-icon {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 50%;
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .certificate-image-container {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover .certificate-image {
+            transform: scale(1.05);
+        }
+
+        .certificate-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .education-content h4 {
-            font-size: 1.25rem;
+        .certificate-card:hover .certificate-overlay {
+            opacity: 1;
+        }
+
+        .certificate-view-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .certificate-view-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-content h4 {
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-light);
         }
 
-        body.light-mode .education-content h4 {
+        body.light-mode .certificate-content h4 {
             color: var(--text-dark);
         }
 
-        .education-content .institution {
-            font-size: 1rem;
+        .certificate-institution {
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
             color: var(--primary);
+            margin-bottom: 0.25rem;
         }
 
-        .education-content .period {
+        .certificate-period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        body.light-mode .certificate-period {
+            color: #6b7280;
+        }
+
+        .certificate-description {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
-        body.light-mode .education-content .period {
-            color: #6b7280;
+        body.light-mode .certificate-description {
+            color: #4b5563;
+        }
+
+        .certificate-grade {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .certificate-detail-btn {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .certificate-detail-btn:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
         }
 
         /* Skills Grid - Responsive */
@@ -620,8 +725,25 @@
             transform: translateY(0);
         }
 
-        /* Media Queries for Skills */
+        /* Media Queries */
         @media (max-width: 768px) {
+            .certificates-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .certificate-image-container {
+                height: 230px;
+            }
+
+            .certificate-content {
+                padding: 1.25rem;
+            }
+
+            .certificate-content h4 {
+                font-size: 1rem;
+            }
+
             .skills-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 1.5rem;
@@ -647,6 +769,32 @@
         }
 
         @media (max-width: 480px) {
+            .certificates-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .certificate-image-container {
+                height: 230px;
+            }
+
+            .certificate-content {
+                padding: 1rem;
+            }
+
+            .certificate-content h4 {
+                font-size: 0.95rem;
+            }
+
+            .certificate-description {
+                font-size: 0.85rem;
+            }
+
+            .certificate-detail-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
             .skills-grid {
                 grid-template-columns: 1fr;
                 gap: 1.25rem;
@@ -729,37 +877,119 @@
         <div class="fade-in">
             <div class="about-card">
                 <h3>Sertifikasi Kompetensi</h3>
-                <div class="education-item">
-                    <div class="education-content">
-                        <h4>Sertifikat Aplikasi Mobile dengan ReactNative dan Laravel</h4>
-                        <div class="institution">Ginvo Studio</div>
-                        <div class="period">2025</div>
-                        <p>Membuat aplikasi mobile Mood Tracker menggunakan ReactNative dan Laravel dengan predikat
-                            Kompeten (100) yang disahkan oleh Ginvo Studio.</p>
+                <div class="certificates-grid">
+                    <div class="certificate-card">
+                        <div class="certificate-image-container">
+                            <img src="serti1.jpg" alt="Sertifikat ReactNative" class="certificate-image">
+                            <div class="certificate-overlay">
+                                <button class="certificate-view-btn" onclick="goToCertificateDetail('reactnative')">
+                                    <i class="fas fa-search-plus"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h4>Sertifikat Aplikasi Mobile dengan ReactNative dan Laravel</h4>
+                            <div class="certificate-institution">Ginvo Studio</div>
+                            <div class="certificate-period">
+                                <i class="fas fa-calendar-alt"></i> 2025
+                            </div>
+                            <p class="certificate-description">Membuat aplikasi mobile Mood Tracker menggunakan ReactNative dan Laravel dengan predikat Kompeten (100).</p>
+                            <span class="certificate-grade">Nilai: 100/100</span>
+                            <button class="certificate-detail-btn" onclick="goToCertificateDetail('reactnative')">
+                                <i class="fas fa-info-circle"></i> Detail Selengkapnya
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-content">
-                        <h4>Sertifikat Web dengan Framework Laravel</h4>
-                        <div class="institution"> PT Kreasi Media</div>
-                        <div class="period">2024</div>
-                        <p>Membangun website library management menggunakan framework Laravel dengan predikat kompeten (93) yang disahkan oleh PT Kreasi Media.</p>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-image-container">
+                            <img src="serti3.jpg" alt="Sertifikat Laravel" class="certificate-image">
+                            <div class="certificate-overlay">
+                                <button class="certificate-view-btn" onclick="goToCertificateDetail('laravel')">
+                                    <i class="fas fa-search-plus"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h4>Sertifikat Web dengan Framework Laravel</h4>
+                            <div class="certificate-institution">PT Kreasi Media</div>
+                            <div class="certificate-period">
+                                <i class="fas fa-calendar-alt"></i> 2024
+                            </div>
+                            <p class="certificate-description">Membangun website library management menggunakan framework Laravel dengan predikat kompeten (93).</p>
+                            <span class="certificate-grade">Nilai: 93/100</span>
+                            <button class="certificate-detail-btn" onclick="goToCertificateDetail('laravel')">
+                                <i class="fas fa-info-circle"></i> Detail Selengkapnya
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-content">
-                        <h4>Sertifikat Aplikasi Berbasis Web dengan PHP dan MySQL</h4>
-                        <div class="institution">PT Dimensi Kreasi Nusantara</div>
-                        <div class="period">2024</div>
-                        <p>Membuat aplikasi pemesanan hotel berbasis web dengan predikat sangat kompeten (100) yang disahkan oleh PT Dimensi Kreasi Nusantara.</p>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-image-container">
+                            <img src="serti2.jpg" alt="Sertifikat PHP MySQL" class="certificate-image">
+                            <div class="certificate-overlay">
+                                <button class="certificate-view-btn" onclick="goToCertificateDetail('phpmysql')">
+                                    <i class="fas fa-search-plus"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h4>Sertifikat Aplikasi Berbasis Web dengan PHP dan MySQL</h4>
+                            <div class="certificate-institution">PT Dimensi Kreasi Nusantara</div>
+                            <div class="certificate-period">
+                                <i class="fas fa-calendar-alt"></i> 2024
+                            </div>
+                            <p class="certificate-description">Membuat aplikasi pemesanan hotel berbasis web dengan predikat sangat kompeten (100).</p>
+                            <span class="certificate-grade">Nilai: 100/100</span>
+                            <button class="certificate-detail-btn" onclick="goToCertificateDetail('phpmysql')">
+                                <i class="fas fa-info-circle"></i> Detail Selengkapnya
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-content">
-                        <h4>Sertifikat Web Design dengan HTML dan CSS</h4>
-                        <div class="institution">PT Wan Teknologi Internasional</div>
-                        <div class="period">2023</div>
-                        <p>Membuat landing page menggunakan HTML dan CSS dengan predikat sangat kompeten (100) yang disahkan oleh PT Wan Teknologi Internasional.</p>
+                    
+                    <div class="certificate-card">
+                        <div class="certificate-image-container">
+                            <img src="serti1.jpg" alt="Sertifikat HTML CSS" class="certificate-image">
+                            <div class="certificate-overlay">
+                                <button class="certificate-view-btn" onclick="goToCertificateDetail('htmlcss')">
+                                    <i class="fas fa-search-plus"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h4>Sertifikat Web Design dengan HTML dan CSS</h4>
+                            <div class="certificate-institution">PT Wan Teknologi Internasional</div>
+                            <div class="certificate-period">
+                                <i class="fas fa-calendar-alt"></i> 2023
+                            </div>
+                            <p class="certificate-description">Membuat landing page menggunakan HTML dan CSS dengan predikat sangat kompeten (100).</p>
+                            <span class="certificate-grade">Nilai: 100/100</span>
+                            <button class="certificate-detail-btn" onclick="goToCertificateDetail('htmlcss')">
+                                <i class="fas fa-info-circle"></i> Detail Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-image-container">
+                            <img src="TOEIC.jpg" alt="Sertifikat TOEIC" class="certificate-image">
+                            <div class="certificate-overlay">
+                                <button class="certificate-view-btn" onclick="goToCertificateDetail('TOEIC')">
+                                    <i class="fas fa-search-plus"></i> Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h4>Sertifikat TOEIC</h4>
+                            <div class="certificate-institution">International Test Center</div>
+                            <div class="certificate-period">
+                                <i class="fas fa-calendar-alt"></i> 2024
+                            </div>
+                            <p class="certificate-description">Mendapatkan sertifikat TOEIC dengan nilai 685 yang diselenggarakan oleh ITC.</p>
+                            <span class="certificate-grade">Skor : 685</span>
+                            <button class="certificate-detail-btn" onclick="goToCertificateDetail('TOEIC')">
+                                <i class="fas fa-info-circle"></i> Detail Selengkapnya
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -902,6 +1132,11 @@
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
+
+        // Function to navigate to certificate detail page
+        function goToCertificateDetail(id) {
+            window.location.href = `certificate-detail.html?id=${id}`;
+        }
 
         // Intersection Observer for fade-in animations
         const observerOptions = {
